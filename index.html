@@ -8,6 +8,18 @@
 <body onload="init()">
     <div class="top-container">
         <h1 class="heading">MineSweeper</h1>
+        <div class="buttons">
+            <button onclick="gameLevel(this)" class="btn">Easy</button>
+            <button onclick="gameLevel(this)" class="btn">Medium</button>
+            <button onclick="gameLevel(this)" class="btn">Expert</button><br>
+        </div>
+        <div class="game-indicators">
+            <h3 class="lives">Lives Remaining: <span>🧡 🧡 🧡</span> </h3>
+            <h3 class="flags-count">Flags Count: <span></span></h3>
+            <button onclick="restart()" class="reset">😀</button>
+            <h2 id="timer">Timer:<span> 00:00</span></h2>
+            <h4 class="message">Congrads!</h4>
+        </div>
     </div>
     <div class="board-container">
         <table border="1" cellpadding="10">
@@ -16,7 +28,9 @@
             </tbody>
         </table>
     </div>
-
+    <div class="bottom-container">
+        <h4 class="credit">Made By Dan Behar © </h4>
+    </div>
     <script src="js/utils.js"></script>
     <script src="js/game.js"></script>
 </body>
