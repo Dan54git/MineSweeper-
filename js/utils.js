@@ -74,7 +74,7 @@ function renderCell(location, value) {
     var time = new Date(timeInMilliseconds);
     var minutes = time.getMinutes().toString();
     var seconds = time.getSeconds().toString();
-    var milliseconds = time.getMilliseconds().toString();
+    // var milliseconds = time.getMilliseconds().toString();
   
     if (minutes.length < 2) {
       minutes = '0' + minutes;
@@ -84,9 +84,9 @@ function renderCell(location, value) {
       seconds = '0' + seconds;
     }
   
-    while (milliseconds.length < 3) {
-      milliseconds = '0' + milliseconds;
-    }
+    // while (milliseconds.length < 3) {
+    //   milliseconds = '0' + milliseconds;
+    // }
   
     return minutes + ' : ' + seconds;
   }

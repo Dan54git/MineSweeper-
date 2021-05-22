@@ -80,7 +80,11 @@ table {
 
 
 .game-indicators {
-    display: inline;
+    /* display: inline; */
+    margin: 10px auto;
+    position: relative;
+    width: 400px;
+    height: 200px;
 }
 
 .credit {
@@ -97,4 +101,12 @@ table {
     margin-top: 10px;
     background-color: #66BFBF;
     padding: 50px 0 20px;
+  }
+
+  .indicator {
+      margin: 10px 15px;
+  }
+
+  .lives span {
+      margin-left: 12px;
   }

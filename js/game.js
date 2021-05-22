@@ -152,6 +152,9 @@ function cellClicked(elCell, i, j) {
     // If he pressed on a mine
     if (currCell.isMine) {
         gLives.pop();
+        gGame.markedCount--;
+        renderFlagsPlacement(gGame.markedCount)
+        console.log('gGame.markedCount' , gGame.markedCount);
         console.log('lives.length', gLives.length);
         renderLivesPlacement(gLives.length);
         if (!gLives.length) {
@@ -160,7 +163,7 @@ function cellClicked(elCell, i, j) {
         };
     }
     // If he pressed on zero mines around that square
-    if (!currCell.minesAroundCount) {
+    if (!currCell.minesAroundCount && !currCell.isMine) {
         expandShown(gBoard, elCell, i, j)
     }
     emptyArray.pop();
@@ -200,8 +203,12 @@ function randomizeMinesLocation(gBoard, size) {
     for (var i = 0; i < gLevel.MINES; i++) {
         var iIdx = getRandomInt(0, size);
         var jIdx = getRandomInt(0, size);
-        // for not placing two bombs in the same location
-        gBoard[iIdx][jIdx].isMine = gBoard[iIdx][jIdx].isMine ? i-- : true;
+        // To chekc about the fist click and to check not placing two bombs in the same location
+        while (gBoard[iIdx][jIdx].isShown || gBoard[iIdx][jIdx].isMine) {
+            iIdx = getRandomInt(0, size);
+            jIdx = getRandomInt(0, size);
+        }
+        gBoard[iIdx][jIdx].isMine = true;
     }
 }
 
@@ -214,6 +221,7 @@ function setMinesNegsCount(gBoard) {
     }
 }
 
+// Puts the numbers on the squares indicating the mines around him
 function setOneMineNegsCount(cellI, cellJ, gBoard) {
     for (var i = cellI - 1; i <= cellI + 1; i++) {
         if (i < 0 || i >= gBoard.length) continue;
@@ -245,11 +253,11 @@ function expandShown(gBoard, elCell, cellI, cellJ) {
         for (var j = cellJ - 1; j <= cellJ + 1; j++) {
             if (i === cellI && j === cellJ) continue;
             if (j < 0 || j >= gBoard[i].length) continue;
-            var cell = gBoard[i][j];
-            if (!cell.isShown) {
+            var currCell = gBoard[i][j];
+            if (!currCell.isShown) {
                 emptyArray.pop();
             }
-            cell.isShown = true;
+            currCell.isShown = true;
             elCell.classList.remove("unchecked");
         }
     }
