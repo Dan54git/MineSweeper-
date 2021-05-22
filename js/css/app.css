@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    text-align: center;
+  }
+
+
+.top-container {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+table {
+    margin: auto;
+    /* width: 400px;
+    height: 400px; */
+}
+
+.board td {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    transition: 0.5s;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.board td:hover {
+    background-color: lightsalmon;
+}
+
+.cheked {
+    background-color:  rgb(253, 255, 122);
+}
+
+
+.timer {
+    /* text-align: center; */
+    margin: 100px auto 0 auto;
+    height: 100px;
+    font-size: 50px;
+    /* visibility: hidden; */
+}
+
+
+.unchecked {
+    background-color: skyblue;
+}
+
+.buttons {
+    margin: 30px auto;
+}
+
+.btn {
+    margin: 0px 30px;
+    width: 120px;
+    height: 50px;
+    background-color: #faf1e6;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: medium;
+    border-color: black;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: gold;
+}
+
+.reset {
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    background-color: white;
+    background-color: lightgray;
+}
+
+.reset:hover {
+    background-color: yellow;
+}
+
+
+.game-indicators {
+    /* display: inline; */
+    margin: 10px auto;
+    position: relative;
+    width: 400px;
+    height: 200px;
+}
+
+.credit {
+  color: #EAF6F6;
+  padding: 20px 0;
+}
+
+
+.message {
+    visibility: hidden;
+}
+
+.bottom-container {
+    margin-top: 10px;
+    background-color: #66BFBF;
+    padding: 50px 0 20px;
+  }
+
+  .indicator {
+      margin: 10px 15px;
+  }
+
+  .lives span {
+      margin-left: 12px;
+  }
